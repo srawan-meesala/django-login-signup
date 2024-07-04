@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Patient Dashboard</h2>
+<div style="display:flex; width:850px; justify-content:space-around">
+    <div>
+        <p>Name: {{ user.first_name }} {{ user.last_name }}</p>
+        <p>Username: {{ user.username }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Address: {{ user.address_line1 }}</p>
+        <p>City: {{ user.city }}</p>
+        <p>State: {{ user.state }}</p>
+        <p>Pincode: {{ user.pincode }}</p>
+    </div>
+    <div>
+        {% if user.profile_picture %}
+            <img
+            style="max-width: 200px;"
+            class="image" src="{{ user.profile_picture.url }}" alt="Profile Picture">
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
